@@ -1,0 +1,124 @@
+{
+  "name": "sd-webui-lobe-theme",
+  "version": "2.6.2",
+  "private": true,
+  "description": "The modern theme for stable diffusion webui, legacy verison a.k.a kitchen theme",
+  "keywords": [
+    "stable-diffusion-webui",
+    "sd-webui-kitchen-theme",
+    "kitchen-theme",
+    "extensions"
+  ],
+  "homepage": "https://github.com/canisminor1990/sd-webui-lobe-theme",
+  "bugs": {
+    "url": "https://github.com/canisminor1990/sd-webui-lobe-theme/issues/new"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/canisminor1990/sd-webui-lobe-theme.git"
+  },
+  "license": "MIT",
+  "author": "canisminor1990 <i@canisminor.cc>",
+  "sideEffects": false,
+  "main": "javascript/main.js",
+  "files": [
+    "javascript"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "dev:sd": "cd ../../ && ./webui.sh",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+    "lint:md": "remark . --quiet --output",
+    "lint:style": "stylelint \"src/**/*.{css,less,js,jsx,ts,tsx}\" --fix",
+    "prepare": "husky install",
+    "prettier": "prettier -c --write \"**/**\"",
+    "release": "semantic-release",
+    "start": "npm run dev",
+    "test": "npm run type-check",
+    "type-check": "tsc -p tsconfig-check.json"
+  },
+  "lint-staged": {
+    "*.md": [
+      "remark --quiet --output --",
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.json": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.{css,less}": [
+      "stylelint --fix --allow-empty-input",
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "prettier --write",
+      "stylelint --fix --allow-empty-input",
+      "eslint --fix"
+    ],
+    "*.{ts,tsx}": [
+      "prettier --parser=typescript --write",
+      "stylelint --fix",
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-import-assertions": "^7",
+    "@commitlint/cli": "^17",
+    "@giscus/react": "^2",
+    "@lobehub/lint": "latest",
+    "@lobehub/ui": "latest",
+    "@types/lodash-es": "^4",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-helmet": "^6",
+    "@types/react-tag-input": "^6",
+    "@types/styled-components": "^5",
+    "@vitejs/plugin-react": "^4",
+    "ahooks": "^3",
+    "antd": "^5",
+    "antd-style": "latest",
+    "commitlint": "^17",
+    "concurrently": "^8",
+    "eslint": "^8",
+    "fast-deep-equal": "^3",
+    "husky": "^8",
+    "i18next": "^23",
+    "lint-staged": "^13",
+    "lodash-es": "^4",
+    "lucide-react": "latest",
+    "lucide-static": "latest",
+    "polished": "^4",
+    "prettier": "^2",
+    "query-string": "^8",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-helmet": "^6",
+    "react-i18next": "^13",
+    "react-layout-kit": "^1",
+    "react-rnd": "^10",
+    "react-simple-code-editor": "^0",
+    "react-tag-input": "^6",
+    "remark": "^14",
+    "remark-cli": "^11",
+    "rollup-plugin-terser": "^7",
+    "semantic-release": "^21",
+    "shiki-es": "^0",
+    "styled-components": "latest",
+    "stylelint": "^15",
+    "typescript": "^5",
+    "vite": "^4",
+    "webpack-shell-plugin-next": "^2",
+    "zustand": "^4"
+  },
+  "peerDependencies": {
+    "antd": ">=5",
+    "antd-style": ">=3",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}
